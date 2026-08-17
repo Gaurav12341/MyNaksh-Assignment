@@ -1,0 +1,48 @@
+# Environment and local credentials
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# Local secret/key material
+*secret*
+*secrets*
+*credential*
+*credentials*
+*api-key*
+*apikey*
+*access-token*
+*refresh-token*
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cert
+
+# Logs and local runtime output
+logs/
+*.log
+*.log.*
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+
+# Node / Vite
+node_modules/
+dist/
+.vite/
+coverage/
+
+# Local tooling state
+.codex/
+.DS_Store
+Thumbs.db

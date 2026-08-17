@@ -1,0 +1,171 @@
+{
+  "languages": {
+    "en": "English",
+    "hi": "Hindi"
+  },
+  "tones": {
+    "motivational": "Motivational",
+    "practical": "Practical",
+    "calm": "Calm",
+    "concise": "Concise"
+  },
+  "subscriptions": {
+    "free": {
+      "max_words_cap": 160
+    },
+    "premium": {
+      "max_words_cap": 280
+    }
+  },
+  "intent_modifiers": {
+    "timing": {
+      "keywords": ["today", "daily", "week", "weekly", "month", "months", "year", "yearly", "next few months", "this year"]
+    },
+    "near_term": {
+      "keywords": ["next few months", "month", "months", "soon"]
+    }
+  },
+  "intents": {
+    "career": {
+      "keywords": ["job", "career", "work", "promotion", "business", "manager", "interview", "opportunity"],
+      "primary_context": [
+        {
+          "source": "horoscope.career",
+          "label": "Career Horoscope"
+        },
+        {
+          "source": "kundli.houses.10",
+          "label": "10th House"
+        }
+      ],
+      "secondary_context": [
+        {
+          "source": "kundli.currentDasha",
+          "label": "Current Dasha"
+        },
+        {
+          "source": "panchang",
+          "label": "Today's Panchang"
+        }
+      ],
+      "exclude": ["Relationship Horoscope"],
+      "response": {
+        "default_max_words": 250
+      }
+    },
+    "relationship": {
+      "keywords": ["relationship", "partner", "marriage", "love", "spouse", "dating", "crush"],
+      "primary_context": [
+        {
+          "source": "horoscope.relationship",
+          "label": "Relationship Horoscope"
+        },
+        {
+          "source": "kundli.houses.7",
+          "label": "7th House"
+        }
+      ],
+      "secondary_context": [
+        {
+          "source": "kundli.moonSign",
+          "label": "Moon Sign"
+        },
+        {
+          "source": "kundli.currentDasha",
+          "label": "Current Dasha"
+        }
+      ],
+      "exclude": ["Career Horoscope"],
+      "response": {
+        "default_max_words": 220
+      }
+    },
+    "health": {
+      "keywords": ["health", "sleep", "stress", "energy", "illness", "fitness", "wellbeing"],
+      "primary_context": [
+        {
+          "source": "horoscope.health",
+          "label": "Health Horoscope"
+        },
+        {
+          "source": "kundli.houses.6",
+          "label": "6th House"
+        }
+      ],
+      "secondary_context": [
+        {
+          "source": "kundli.moonSign",
+          "label": "Moon Sign"
+        },
+        {
+          "source": "panchang",
+          "label": "Today's Panchang"
+        }
+      ],
+      "exclude": ["Finance Horoscope"],
+      "response": {
+        "default_max_words": 180,
+        "safety_note": "Do not provide medical diagnosis. Encourage professional medical help for serious symptoms."
+      }
+    },
+    "finance": {
+      "keywords": ["finance", "money", "investment", "investments", "salary", "income", "loan", "savings"],
+      "primary_context": [
+        {
+          "source": "horoscope.finance",
+          "label": "Finance Horoscope"
+        },
+        {
+          "source": "kundli.houses.10",
+          "label": "10th House"
+        }
+      ],
+      "secondary_context": [
+        {
+          "source": "kundli.currentDasha",
+          "label": "Current Dasha"
+        },
+        {
+          "source": "panchang",
+          "label": "Today's Panchang"
+        }
+      ],
+      "exclude": ["Relationship Horoscope"],
+      "response": {
+        "default_max_words": 220,
+        "safety_note": "Avoid deterministic financial advice. Frame as reflective guidance."
+      }
+    },
+    "general": {
+      "keywords": [],
+      "primary_context": [
+        {
+          "source": "horoscope.general",
+          "label": "General Horoscope"
+        },
+        {
+          "source": "kundli.lagna",
+          "label": "Lagna"
+        },
+        {
+          "source": "kundli.moonSign",
+          "label": "Moon Sign"
+        },
+        {
+          "source": "panchang",
+          "label": "Today's Panchang"
+        }
+      ],
+      "secondary_context": [
+        {
+          "source": "kundli.currentDasha",
+          "label": "Current Dasha"
+        }
+      ],
+      "exclude": [],
+      "response": {
+        "default_max_words": 200
+      }
+    }
+  }
+}

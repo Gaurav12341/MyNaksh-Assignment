@@ -1,0 +1,32 @@
+# Environment and local credentials
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# Local secret/key material
+*secret*
+*secrets*
+*credential*
+*credentials*
+*api-key*
+*apikey*
+*access-token*
+*refresh-token*
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cert
+
+# Node / Vite
+node_modules/
+dist/
+.vite/
+coverage/
+
+# Logs
+logs/
+*.log
+*.log.*

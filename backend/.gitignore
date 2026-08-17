@@ -1,0 +1,37 @@
+# Environment and local credentials
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# Local secret/key material
+*secret*
+*secrets*
+*credential*
+*credentials*
+*api-key*
+*apikey*
+*access-token*
+*refresh-token*
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cert
+
+# Logs and runtime output
+logs/
+*.log
+*.log.*
+
+# Python
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.py[cod]
+.coverage
+htmlcov/
+.venv/
+venv/
