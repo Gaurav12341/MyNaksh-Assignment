@@ -1,0 +1,115 @@
+<mxfile host="65bd71144e">
+    <diagram name="MyNaksh Architecture" id="mynaksh-clean-architecture">
+        <mxGraphModel dx="1097" dy="591" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1500" pageHeight="860" background="#ffffff" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="title" value="MyNaksh Personalization Engine Architecture" style="text;html=1;strokeColor=none;fillColor=none;fontSize=28;fontStyle=1;fontColor=#0f172a;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="52" y="30" width="760" height="44" as="geometry"/>
+                </mxCell>
+                <mxCell id="subtitle" value="POC backend layer for selecting relevant context, building a compact prompt, and returning a grounded structured answer." style="text;html=1;strokeColor=none;fillColor=none;fontSize=14;fontColor=#475569;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="52" y="72" width="980" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="clientLane" value="Client&lt;br&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;React + Vite&lt;/font&gt;" style="swimlane;whiteSpace=wrap;html=1;rounded=1;startSize=70;fillColor=#ffffff;strokeColor=#cbd5e1;fontStyle=1;fontColor=#0f172a;" parent="1" vertex="1">
+                    <mxGeometry x="52" y="134" width="230" height="560" as="geometry"/>
+                </mxCell>
+                <mxCell id="apiLane" value="API Layer&lt;br&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;FastAPI routes + access control&lt;/font&gt;" style="swimlane;whiteSpace=wrap;html=1;rounded=1;startSize=70;fillColor=#ffffff;strokeColor=#cbd5e1;fontStyle=1;fontColor=#0f172a;" parent="1" vertex="1">
+                    <mxGeometry x="338" y="134" width="260" height="560" as="geometry"/>
+                </mxCell>
+                <mxCell id="orchLane" value="Orchestration&lt;br&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;Assignment core evaluation area&lt;/font&gt;" style="swimlane;whiteSpace=wrap;html=1;rounded=1;startSize=70;fillColor=#ffffff;strokeColor=#cbd5e1;fontStyle=1;fontColor=#0f172a;" parent="1" vertex="1">
+                    <mxGeometry x="654" y="134" width="354" height="560" as="geometry"/>
+                </mxCell>
+                <mxCell id="dataLane" value="Data Sources&lt;br&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;Mock or Mongo-backed services&lt;/font&gt;" style="swimlane;whiteSpace=wrap;html=1;rounded=1;startSize=70;fillColor=#ffffff;strokeColor=#cbd5e1;fontStyle=1;fontColor=#0f172a;" parent="1" vertex="1">
+                    <mxGeometry x="1064" y="134" width="230" height="560" as="geometry"/>
+                </mxCell>
+                <mxCell id="llmLane" value="LLM&lt;br&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;Providers&lt;/font&gt;" style="swimlane;whiteSpace=wrap;html=1;rounded=1;startSize=70;fillColor=#ffffff;strokeColor=#cbd5e1;fontStyle=1;fontColor=#0f172a;" parent="1" vertex="1">
+                    <mxGeometry x="1350" y="134" width="98" height="560" as="geometry"/>
+                </mxCell>
+                <mxCell id="studioUi" value="&lt;b&gt;Studio UI&lt;/b&gt;&lt;br&gt;Login, user selection&lt;br&gt;Question + provider" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ecfeff;strokeColor=#06b6d4;fontColor=#0f172a;" parent="1" vertex="1">
+                    <mxGeometry x="82" y="232" width="170" height="92" as="geometry"/>
+                </mxCell>
+                <mxCell id="browserCache" value="&lt;b&gt;Browser Cache&lt;/b&gt;&lt;br&gt;localStorage&lt;br&gt;Optional refresh" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;fontColor=#0f172a;" parent="1" vertex="1">
+                    <mxGeometry x="82" y="358" width="170" height="86" as="geometry"/>
+                </mxCell>
+                <mxCell id="adminViews" value="&lt;b&gt;Admin Views&lt;/b&gt;&lt;br&gt;Debug plan&lt;br&gt;Recent logs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;fontColor=#0f172a;" parent="1" vertex="1">
+                    <mxGeometry x="82" y="478" width="170" height="98" as="geometry"/>
+                </mxCell>
+                <mxCell id="routes" value="&lt;b&gt;API Routes&lt;/b&gt;&lt;br&gt;/personalize&lt;br&gt;/debug, /auth, /admin" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ecfeff;strokeColor=#06b6d4;fontColor=#0f172a;" parent="1" vertex="1">
+                    <mxGeometry x="374" y="232" width="188" height="92" as="geometry"/>
+                </mxCell>
+                <mxCell id="auth" value="&lt;b&gt;Auth + RBAC&lt;/b&gt;&lt;br&gt;Bearer token&lt;br&gt;User scope checks" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;fontColor=#0f172a;" parent="1" vertex="1">
+                    <mxGeometry x="374" y="358" width="188" height="86" as="geometry"/>
+                </mxCell>
+                <mxCell id="billing" value="&lt;b&gt;Billing&lt;/b&gt;&lt;br&gt;Stripe coming soon&lt;br&gt;Mock fallback" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff7ed;strokeColor=#f97316;fontColor=#0f172a;" parent="1" vertex="1">
+                    <mxGeometry x="374" y="478" width="188" height="98" as="geometry"/>
+                </mxCell>
+                <mxCell id="fetcher" value="&lt;b&gt;Concurrent Context Fetcher&lt;/b&gt;&lt;br&gt;Calls all upstream services together&lt;br&gt;Retries, timeouts, partial failures" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ecfeff;strokeColor=#06b6d4;fontColor=#0f172a;" parent="1" vertex="1">
+                    <mxGeometry x="690" y="232" width="282" height="92" as="geometry"/>
+                </mxCell>
+                <mxCell id="engine" value="&lt;b&gt;Personalization Engine&lt;/b&gt;&lt;br&gt;Intent detection&lt;br&gt;Relevant context selection&lt;br&gt;Language, tone, response length" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f3ff;strokeColor=#8b5cf6;fontColor=#0f172a;" parent="1" vertex="1">
+                    <mxGeometry x="690" y="358" width="282" height="116" as="geometry"/>
+                </mxCell>
+                <mxCell id="prompt" value="&lt;b&gt;Prompt&lt;/b&gt;&lt;br&gt;Selected facts&lt;br&gt;Output contract" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f3ff;strokeColor=#8b5cf6;fontColor=#0f172a;" parent="1" vertex="1">
+                    <mxGeometry x="690" y="508" width="130" height="86" as="geometry"/>
+                </mxCell>
+                <mxCell id="confidence" value="&lt;b&gt;Confidence&lt;/b&gt;&lt;br&gt;Source quality&lt;br&gt;Failure aware" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f3ff;strokeColor=#8b5cf6;fontColor=#0f172a;" parent="1" vertex="1">
+                    <mxGeometry x="842" y="508" width="130" height="86" as="geometry"/>
+                </mxCell>
+                <mxCell id="userService" value="&lt;b&gt;User Service&lt;/b&gt;&lt;br&gt;Profile, language&lt;br&gt;Tone preference" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ecfdf5;strokeColor=#10b981;fontColor=#0f172a;" parent="1" vertex="1">
+                    <mxGeometry x="1094" y="232" width="170" height="92" as="geometry"/>
+                </mxCell>
+                <mxCell id="astroServices" value="&lt;b&gt;Astrology Services&lt;/b&gt;&lt;br&gt;Kundli, horoscope&lt;br&gt;Panchang" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ecfdf5;strokeColor=#10b981;fontColor=#0f172a;" parent="1" vertex="1">
+                    <mxGeometry x="1094" y="358" width="170" height="92" as="geometry"/>
+                </mxCell>
+                <mxCell id="storage" value="&lt;b&gt;MongoDB / Mock&lt;/b&gt;&lt;br&gt;GUID _id&lt;br&gt;userRefId links" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ecfdf5;strokeColor=#10b981;fontColor=#0f172a;" parent="1" vertex="1">
+                    <mxGeometry x="1094" y="484" width="170" height="92" as="geometry"/>
+                </mxCell>
+                <mxCell id="mockLlm" value="&lt;b&gt;Mock&lt;/b&gt;&lt;br&gt;Local" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;fontColor=#0f172a;" parent="1" vertex="1">
+                    <mxGeometry x="1364" y="232" width="70" height="92" as="geometry"/>
+                </mxCell>
+                <mxCell id="openRouter" value="&lt;b&gt;Open&lt;br&gt;Router&lt;/b&gt;&lt;br&gt;Live" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f3ff;strokeColor=#8b5cf6;fontColor=#0f172a;" parent="1" vertex="1">
+                    <mxGeometry x="1364" y="358" width="70" height="92" as="geometry"/>
+                </mxCell>
+                <mxCell id="futureLlm" value="&lt;b&gt;More&lt;/b&gt;&lt;br&gt;Soon" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff7ed;strokeColor=#f97316;fontColor=#0f172a;" parent="1" vertex="1">
+                    <mxGeometry x="1364" y="484" width="70" height="92" as="geometry"/>
+                </mxCell>
+                <mxCell id="observability" value="&lt;b&gt;Observability and Caching&lt;/b&gt; - Backend TTL cache, rotating file logs, actor/session metadata, intent, selected sources, provider, confidence, and short answer preview." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;fontColor=#0f172a;" parent="1" vertex="1">
+                    <mxGeometry x="52" y="740" width="1396" height="72" as="geometry"/>
+                </mxCell>
+                <mxCell id="principle" value="Principle: send only selected context to the LLM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e0f2fe;strokeColor=#06b6d4;fontStyle=1;fontColor=#0e7490;" parent="1" vertex="1">
+                    <mxGeometry x="1040" y="736" width="320" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="e1" value="request" style="endArrow=block;html=1;rounded=1;strokeColor=#334155;strokeWidth=2;fontColor=#334155;" parent="1" source="studioUi" target="routes" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e2" value="authorized" style="endArrow=block;html=1;rounded=1;strokeColor=#334155;strokeWidth=2;fontColor=#334155;" parent="1" source="routes" target="fetcher" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e3" value="fetch" style="endArrow=block;html=1;rounded=1;strokeColor=#334155;strokeWidth=2;fontColor=#334155;" parent="1" source="fetcher" target="userService" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e4" value="context results" style="endArrow=block;html=1;rounded=1;strokeColor=#94a3b8;fontColor=#334155;" parent="1" source="userService" target="fetcher" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="1060" y="530" as="sourcePoint"/>
+                        <mxPoint x="972" y="300" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e5" style="endArrow=block;html=1;rounded=1;strokeColor=#334155;strokeWidth=2;" parent="1" source="fetcher" target="engine" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e6" style="endArrow=block;html=1;rounded=1;strokeColor=#334155;strokeWidth=2;" parent="1" source="engine" target="prompt" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e7" style="endArrow=block;html=1;rounded=1;strokeColor=#94a3b8;" parent="1" source="engine" target="confidence" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e8" value="compact prompt" style="endArrow=block;html=1;rounded=1;strokeColor=#334155;strokeWidth=2;fontColor=#334155;" parent="1" source="prompt" target="openRouter" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e9" value="answer + confidence + sourcesUsed" style="endArrow=block;html=1;rounded=1;strokeColor=#94a3b8;fontColor=#334155;" parent="1" source="openRouter" target="routes" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

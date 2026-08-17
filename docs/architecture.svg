@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="860" viewBox="0 0 1500 860" role="img" aria-labelledby="title desc">
+  <title id="title">MyNaksh Personalization Engine Architecture</title>
+  <desc id="desc">Clean layered architecture diagram for the MyNaksh POC, showing client, API, orchestration, data services, LLM providers, and observability.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef2ff"/>
+    </linearGradient>
+    <linearGradient id="header" x1="0" x2="1">
+      <stop offset="0" stop-color="#0891b2"/>
+      <stop offset="1" stop-color="#7c3aed"/>
+    </linearGradient>
+    <filter id="softShadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/>
+    </marker>
+    <style>
+      .page-title { fill: #0f172a; font: 800 34px Arial, sans-serif; }
+      .subtitle { fill: #475569; font: 500 15px Arial, sans-serif; }
+      .lane { fill: #ffffff; stroke: #dbe3ef; stroke-width: 1.3; rx: 18; filter: url(#softShadow); }
+      .lane-title { fill: #0f172a; font: 800 18px Arial, sans-serif; }
+      .lane-note { fill: #64748b; font: 500 12px Arial, sans-serif; }
+      .module { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 1.2; rx: 12; }
+      .module-primary { fill: #ecfeff; stroke: #06b6d4; stroke-width: 1.4; rx: 12; }
+      .module-core { fill: #f5f3ff; stroke: #8b5cf6; stroke-width: 1.4; rx: 12; }
+      .module-data { fill: #ecfdf5; stroke: #10b981; stroke-width: 1.4; rx: 12; }
+      .module-warning { fill: #fff7ed; stroke: #f97316; stroke-width: 1.4; rx: 12; }
+      .module-title { fill: #0f172a; font: 800 15px Arial, sans-serif; }
+      .module-text { fill: #475569; font: 500 12.5px Arial, sans-serif; }
+      .flow { fill: none; stroke: #334155; stroke-width: 2; marker-end: url(#arrow); }
+      .flow-soft { fill: none; stroke: #94a3b8; stroke-width: 1.7; marker-end: url(#arrow); }
+      .flow-label { fill: #334155; font: 700 12px Arial, sans-serif; }
+      .badge { fill: #e0f2fe; stroke: #06b6d4; stroke-width: 1; rx: 999; }
+      .badge-text { fill: #0e7490; font: 800 12px Arial, sans-serif; }
+    </style>
+  </defs>
+
+  <rect width="1500" height="860" fill="url(#background)"/>
+  <rect x="0" y="0" width="1500" height="10" fill="url(#header)"/>
+
+  <text x="52" y="58" class="page-title">MyNaksh Personalization Engine Architecture</text>
+  <text x="52" y="86" class="subtitle">A POC backend layer that selects relevant astrological context, builds a compact prompt, and returns a grounded structured answer.</text>
+
+  <rect x="52" y="134" width="230" height="560" class="lane"/>
+  <text x="82" y="172" class="lane-title">Client</text>
+  <text x="82" y="194" class="lane-note">React + Vite</text>
+  <rect x="82" y="232" width="170" height="92" class="module-primary"/>
+  <text x="104" y="264" class="module-title">Studio UI</text>
+  <text x="104" y="290" class="module-text">Login, user selection</text>
+  <text x="104" y="310" class="module-text">Question + provider</text>
+  <rect x="82" y="358" width="170" height="86" class="module"/>
+  <text x="104" y="390" class="module-title">Browser Cache</text>
+  <text x="104" y="416" class="module-text">localStorage</text>
+  <text x="104" y="436" class="module-text">Optional refresh</text>
+  <rect x="82" y="478" width="170" height="98" class="module"/>
+  <text x="104" y="510" class="module-title">Admin Views</text>
+  <text x="104" y="536" class="module-text">Debug plan</text>
+  <text x="104" y="556" class="module-text">Recent logs</text>
+
+  <rect x="338" y="134" width="260" height="560" class="lane"/>
+  <text x="368" y="172" class="lane-title">API Layer</text>
+  <text x="368" y="194" class="lane-note">FastAPI routes and access control</text>
+  <rect x="374" y="232" width="188" height="92" class="module-primary"/>
+  <text x="396" y="264" class="module-title">API Routes</text>
+  <text x="396" y="290" class="module-text">/personalize</text>
+  <text x="396" y="310" class="module-text">/debug, /auth, /admin</text>
+  <rect x="374" y="358" width="188" height="86" class="module"/>
+  <text x="396" y="390" class="module-title">Auth + RBAC</text>
+  <text x="396" y="416" class="module-text">Bearer token</text>
+  <text x="396" y="436" class="module-text">User scope checks</text>
+  <rect x="374" y="478" width="188" height="98" class="module-warning"/>
+  <text x="396" y="510" class="module-title">Billing</text>
+  <text x="396" y="536" class="module-text">Stripe coming soon</text>
+  <text x="396" y="556" class="module-text">Mock fallback</text>
+
+  <rect x="654" y="134" width="354" height="560" class="lane"/>
+  <text x="684" y="172" class="lane-title">Orchestration</text>
+  <text x="684" y="194" class="lane-note">The assignment's core evaluation area</text>
+  <rect x="690" y="232" width="282" height="92" class="module-primary"/>
+  <text x="712" y="264" class="module-title">Concurrent Context Fetcher</text>
+  <text x="712" y="290" class="module-text">Calls all upstream services together</text>
+  <text x="712" y="310" class="module-text">Retries, timeouts, partial failures</text>
+  <rect x="690" y="358" width="282" height="116" class="module-core"/>
+  <text x="712" y="390" class="module-title">Personalization Engine</text>
+  <text x="712" y="416" class="module-text">Intent detection</text>
+  <text x="712" y="436" class="module-text">Relevant context selection</text>
+  <text x="712" y="456" class="module-text">Language, tone, response length</text>
+  <rect x="690" y="508" width="130" height="86" class="module-core"/>
+  <text x="712" y="540" class="module-title">Prompt</text>
+  <text x="712" y="566" class="module-text">Selected facts</text>
+  <text x="712" y="586" class="module-text">Output contract</text>
+  <rect x="842" y="508" width="130" height="86" class="module-core"/>
+  <text x="864" y="540" class="module-title">Confidence</text>
+  <text x="864" y="566" class="module-text">Source quality</text>
+  <text x="864" y="586" class="module-text">Failure aware</text>
+
+  <rect x="1064" y="134" width="230" height="560" class="lane"/>
+  <text x="1094" y="172" class="lane-title">Data Sources</text>
+  <text x="1094" y="194" class="lane-note">Mock or Mongo-backed services</text>
+  <rect x="1094" y="232" width="170" height="92" class="module-data"/>
+  <text x="1116" y="264" class="module-title">User Service</text>
+  <text x="1116" y="290" class="module-text">Profile, language</text>
+  <text x="1116" y="310" class="module-text">Tone preference</text>
+  <rect x="1094" y="358" width="170" height="92" class="module-data"/>
+  <text x="1116" y="390" class="module-title">Astrology Services</text>
+  <text x="1116" y="416" class="module-text">Kundli, horoscope</text>
+  <text x="1116" y="436" class="module-text">Panchang</text>
+  <rect x="1094" y="484" width="170" height="92" class="module-data"/>
+  <text x="1116" y="516" class="module-title">MongoDB / Mock</text>
+  <text x="1116" y="542" class="module-text">GUID _id</text>
+  <text x="1116" y="562" class="module-text">userRefId links</text>
+
+  <rect x="1350" y="134" width="98" height="560" class="lane"/>
+  <text x="1368" y="172" class="lane-title">LLM</text>
+  <text x="1368" y="194" class="lane-note">Providers</text>
+  <rect x="1364" y="232" width="70" height="92" class="module"/>
+  <text x="1376" y="264" class="module-title">Mock</text>
+  <text x="1376" y="290" class="module-text">Local</text>
+  <rect x="1364" y="358" width="70" height="92" class="module-core"/>
+  <text x="1376" y="390" class="module-title">Open</text>
+  <text x="1376" y="410" class="module-title">Router</text>
+  <text x="1376" y="436" class="module-text">Live</text>
+  <rect x="1364" y="484" width="70" height="92" class="module-warning"/>
+  <text x="1376" y="516" class="module-title">More</text>
+  <text x="1376" y="542" class="module-text">Soon</text>
+
+  <path d="M 282 278 L 338 278" class="flow"/>
+  <text x="296" y="266" class="flow-label">request</text>
+  <path d="M 598 278 L 654 278" class="flow"/>
+  <text x="610" y="266" class="flow-label">authorized</text>
+  <path d="M 1008 278 L 1064 278" class="flow"/>
+  <text x="1018" y="266" class="flow-label">fetch</text>
+  <path d="M 1064 530 C 1036 530 1036 300 972 300" class="flow-soft"/>
+  <text x="998" y="427" class="flow-label">context results</text>
+  <path d="M 831 324 L 831 358" class="flow"/>
+  <path d="M 831 474 L 755 508" class="flow"/>
+  <path d="M 831 474 L 907 508" class="flow-soft"/>
+  <path d="M 820 551 L 1350 404" class="flow"/>
+  <text x="1030" y="470" class="flow-label">compact prompt</text>
+  <path d="M 1350 404 C 1230 640 620 646 562 278" class="flow-soft"/>
+  <text x="942" y="655" class="flow-label">answer + confidence + sourcesUsed</text>
+
+  <rect x="52" y="740" width="1396" height="72" class="lane"/>
+  <text x="82" y="782" class="lane-title">Observability and Caching</text>
+  <text x="326" y="782" class="subtitle">Backend TTL cache, rotating file logs, actor/session metadata, intent, selected sources, provider, confidence, and short answer preview.</text>
+  <rect x="1040" y="736" width="320" height="34" class="badge"/>
+  <text x="1062" y="758" class="badge-text">Principle: send only selected context to the LLM</text>
+</svg>

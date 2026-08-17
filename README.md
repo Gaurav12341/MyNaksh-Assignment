@@ -158,6 +158,9 @@ Production concerns left out:
 
 More detailed planning notes are in:
 
+- `docs/ARCHITECTURE.md`
+- `docs/architecture.svg`
+- `docs/architecture.drawio`
 - `docs/DETAILED_PLAN.md`
 - `docs/PROJECT_OVERVIEW.md`
 - `docs/LEARNING_NOTES.md`
